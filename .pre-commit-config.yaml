@@ -34,13 +34,13 @@ repos:
     hooks:
       - id: yamlfmt
         args: [
-            "-formatter",
-            "retain_line_breaks=true",
-            "-formatter",
-            "max_line_length=80",
-            "-formatter",
-            "scan_folded_as_literal=true", # !yamlfmt!:ignore
-          ]
+          "-formatter",
+          "retain_line_breaks=true",
+          "-formatter",
+          "max_line_length=80",
+          "-formatter",
+          "scan_folded_as_literal=true", # !yamlfmt!:ignore
+        ]
         files: \.(yml|yaml)$
   - repo: local
     hooks:
@@ -54,8 +54,7 @@ repos:
 
       - id: poetry-check
         name: Poetry check
-        description:
-          Validates the content of the pyproject.toml file and its consistency
+        description: Validates the content of the pyproject.toml file and its consistency
           with the poetry.lock file.
         entry: poetry check
         language: system
