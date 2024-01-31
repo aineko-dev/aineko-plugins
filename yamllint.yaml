@@ -1,0 +1,5 @@
+extends: relaxed
+yaml-files:
+  - "*.yaml"
+  - "*.yml"
+  - ".yamllint"
