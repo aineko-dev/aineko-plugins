@@ -1,6 +1,6 @@
 # Copyright 2023 Aineko Authors
 # SPDX-License-Identifier: Apache-2.0
-"""Shared fixtures for aineko-plugins"""
+"""Fixtures for aineko-plugins"""
 import os
 
 import pytest
