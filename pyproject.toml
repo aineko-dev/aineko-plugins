@@ -27,6 +27,7 @@ yamllint = "^1.32.0"
 
 aineko_plugins_fastapi_server = { path = "./aineko-plugins-fastapi-server", develop = true }
 aineko_plugins_websocket_client = { path = "./aineko-plugins-websocket-client", develop = true }
+aineko_plugins_http_poller = { path = "./aineko-plugins-http-poller", develop = true }
 
 [tool.poetry.group.test]
 optional = true
