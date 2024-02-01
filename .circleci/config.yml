@@ -1,0 +1,106 @@
+# Copyright 2023 Aineko Authors
+# SPDX-License-Identifier: Apache-2.0
+version: 2.1
+
+parameters:
+  python_version:
+    description: Version to python to use
+    type: string
+    default: "3.8"
+
+workflows:
+  continuous-integration:
+    jobs:
+      - python-checks:
+          matrix:
+            parameters:
+              python_version:
+                - "3.8"
+                - "3.9"
+                - "3.10"
+                - "3.11"
+          python_version: << matrix.python_version >>
+          filters:
+            branches:
+              ignore: develop
+          markers: "not integration"
+      - integration-tests:
+          matrix:
+            parameters:
+              python_version:
+                - "3.8"
+                - "3.9"
+                - "3.10"
+                - "3.11"
+          markers: integration
+          requires:
+            - python-checks
+
+jobs:
+  integration-tests:
+    parameters:
+      python_version:
+        type: string
+        default: "3.8"
+        description: Version of python to use
+      markers:
+        type: string
+        default: integration
+        description: Markers to run pytest for
+
+    docker:
+      - image: cimg/python:<< parameters.python_version >>
+      - image: confluentinc/cp-zookeeper:7.3.0
+        name: zookeeper
+        environment:
+          ZOOKEEPER_CLIENT_PORT: 2181
+          ZOOKEEPER_TICK_TIME: 2000
+      - image: confluentinc/cp-kafka:7.3.0
+        environment:
+          KAFKA_BROKER_ID: 1
+          KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+          KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+          KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://broker:29092
+          KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+          KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+          KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+    steps:
+      - checkout
+      - run: poetry install --with test --no-interaction --all-extras --no-ansi
+      - run: >
+          poetry run pytest . -m "<< parameters.markers >>" -svv
+
+  python-checks:
+    parameters:
+      python_version:
+        type: string
+        default: "3.8"
+        description: Version of python to use
+      markers:
+        type: string
+        default: ""
+        description: Markers to run pytest for
+
+    docker:
+      - image: cimg/python:<< parameters.python_version >>
+
+    steps:
+      - checkout
+      - run: poetry install --with dev,test --no-interaction --all-extras --no-ansi
+      - run: poetry run isort .
+      - run: >
+          poetry run black .
+      # - run: poetry run pydocstyle << parameters.prj_dir >>
+      - run: poetry run pylint .
+      - run: poetry run yamllint -c yamllint.yaml .
+      - run: |
+          poetry run pre-commit install
+          poetry run pre-commit run --all
+      - run: >
+          poetry run pytest . -m "<< parameters.markers >>" -svv
+      - run:
+          name: mypy
+          command: |
+            poetry run mypy --install-types --non-interactive
+            poetry run mypy .
