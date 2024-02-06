@@ -10,14 +10,14 @@ pipeline:
     fastapi:
       class: aineko_plugins.nodes.fastapi_server.FastAPI
       node_params:
-        app: aineko-plugins-fastapi-server.tests.main:app
+        app: aineko-plugins-nodes-fastapi-server.tests.main:app
       inputs:
         - messages
       outputs:
         - messages
 
     fastapi_checker:
-      class: aineko-plugins-fastapi-server.tests.test_fastapi.FastAPIChecker
+      class: aineko-plugins-nodes-fastapi-server.tests.test_fastapi.FastAPIChecker
       outputs:
         - test_result
 

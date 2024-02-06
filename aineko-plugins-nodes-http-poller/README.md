@@ -1,6 +1,6 @@
-# Aineko-Plugins-HTTP-Poller
+# aineko-plugins-nodes-http-poller
 
-The `aineko-plugins-http-poller` package is a plugin for the [Aineko](https://github.com/aineko-dev/aineko) framework.
+The `aineko-plugins-nodes-http-poller` package is a plugin for the [Aineko](https://github.com/aineko-dev/aineko) framework.
 
 
 It provides a node that hosts an HTTP poller, allowing to periodically consume an API response and publishing it to a dataset.

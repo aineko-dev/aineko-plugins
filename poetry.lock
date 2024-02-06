@@ -2,7 +2,7 @@
 
 [[package]]
 name = "aineko"
-version = "0.3.0"
+version = "0.3.1"
 description = "Aineko, a data integration framework."
 optional = false
 python-versions = ">=3.8,<3.12"
@@ -19,7 +19,7 @@ PyYAML = "^6.0.1"
 ray = {version = "^2.9.0", extras = ["default"]}
 
 [package.extras]
-fastapi = ["fastapi (>=0.109.1)", "uvicorn[standard] (>=0.22,<0.23)"]
+fastapi = ["fastapi (>=0.109.2,<0.110.0)", "uvicorn[standard] (>=0.22,<0.23)"]
 rest-poller = ["requests (>=2.31.0,<3.0.0)"]
 websocket-client = ["websocket-client (>=1.7.0,<2.0.0)", "websockets (>=12.0,<13.0)"]
 
@@ -28,7 +28,7 @@ type = "directory"
 url = "../aineko"
 
 [[package]]
-name = "aineko-plugins-fastapi-server"
+name = "aineko-plugins-nodes-fastapi-server"
 version = "0.0.1"
 description = "Aineko plugins for running a FastAPI server"
 optional = false
@@ -38,15 +38,15 @@ develop = true
 
 [package.dependencies]
 aineko = "^0.3.0"
-fastapi = ">=0.109.1"
+fastapi = "~0.109.2"
 uvicorn = {version = "^0.22", extras = ["standard"]}
 
 [package.source]
 type = "directory"
-url = "aineko-plugins-fastapi-server"
+url = "aineko-plugins-nodes-fastapi-server"
 
 [[package]]
-name = "aineko-plugins-http-poller"
+name = "aineko-plugins-nodes-http-poller"
 version = "0.0.1"
 description = "Aineko plugin for running a HTTP poller."
 optional = false
@@ -60,10 +60,10 @@ requests = "^2.31.0"
 
 [package.source]
 type = "directory"
-url = "aineko-plugins-http-poller"
+url = "aineko-plugins-nodes-http-poller"
 
 [[package]]
-name = "aineko-plugins-websocket-client"
+name = "aineko-plugins-nodes-websocket-client"
 version = "0.0.1"
 description = "Aineko plugin for running a WebSocket client"
 optional = false
@@ -78,7 +78,7 @@ websockets = "^12.0"
 
 [package.source]
 type = "directory"
-url = "aineko-plugins-websocket-client"
+url = "aineko-plugins-nodes-websocket-client"
 
 [[package]]
 name = "aineko-style"
@@ -3283,4 +3283,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.12"
-content-hash = "a8bbfec214b699c1b1bb0644d4aaf858ab20e5b506b2123cfcadf6010d3f3afb"
+content-hash = "c3b7b0ddc937ee7e69552403b637ee3bb781f0cb28ef703a82cd4d9971c2ace6"
