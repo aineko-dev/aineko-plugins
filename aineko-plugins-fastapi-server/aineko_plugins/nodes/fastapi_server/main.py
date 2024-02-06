@@ -1,15 +1,14 @@
 # Copyright 2023 Aineko Authors
 # SPDX-License-Identifier: Apache-2.0
-"""Extra module for running a FastAPI server.
+"""Main module for running a FastAPI server with Aineko.
 
-This module contains the Consumers and Producers class that give
-access to the node's consumers and producers from within the FastAPI
-app. It also contains the FastAPI node class that runs the uvicorn
-server.
+This module contains the Consumers and Producers class that give access to the
+node's consumers and producers from within the FastAPI app. It also contains
+the FastAPI node class that runs the uvicorn server.
 
-We recommend no more than 1 FastAPI node per pipeline since the Consumer
-and Producer objects are namespaced at the pipeline level. If you must
-have multiple FastAPI nodes, we recommend using different datasets to avoid
+We recommend no more than 1 FastAPI node per pipeline since the Consumer and
+Producer objects are namespaced at the pipeline level. If you must have
+multiple FastAPI nodes, we recommend using different datasets to avoid
 namespace collisions.
 """
 
