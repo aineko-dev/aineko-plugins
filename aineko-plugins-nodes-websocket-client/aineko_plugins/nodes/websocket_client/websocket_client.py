@@ -69,7 +69,7 @@ class WebSocketClient(AbstractNode):
     pipeline:
       nodes:
         WebSocketClient:
-          class: aineko.extras.WebSocketClient
+          class: aineko_plugins.nodes.websocket_client.WebSocketClient
           outputs:
             - test_websocket
           node_params:

@@ -77,9 +77,9 @@ class FastAPI(AbstractNode):
             Defaults to "info".
 
     To access the consumers and producers from your FastAPI app, import the
-    `consumers` and `producers` variables from `aineko.extras.fastapi`. Use
-    them as you would use `self.consumers` and `self.producers` in a regular
-    node.
+    `consumers` and `producers` variables from
+    `aineko_plugins.nodes.fastapi_server`. Use them as you would use
+    `self.consumers` and `self.producers` in a regular node.
 
     We recommend no more than 1 FastAPI node per pipeline since the Consumer
     and Producer objects are namespaced at the pipeline level.
@@ -89,7 +89,7 @@ class FastAPI(AbstractNode):
     pipeline:
       nodes:
         fastapi:
-          class: aineko.extras.FastAPI
+          class: aineko_plugins.nodes.fastapi_server.FastAPI
           inputs:
             - test_sequence
           node_params:
@@ -102,7 +102,7 @@ class FastAPI(AbstractNode):
 
     Example usage in FastAPI app:
     ```python title="fastapi.py"
-    from aineko.extras.fastapi import consumers, producers
+    from aineko_plugins.nodes.fastapi_server import consumers, producers
 
     @app.get("/query")
     async def query():

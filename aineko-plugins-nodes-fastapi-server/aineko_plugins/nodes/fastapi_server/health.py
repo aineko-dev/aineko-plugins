@@ -24,7 +24,7 @@ async def read_health() -> dict:
     Example usage in FastAPI app:
         ```python hl_lines="2 5"
         from fastapi import FastAPI
-        from aineko.extras.fastapi import health_router
+        from aineko_plugins.nodes.fastapi_server import health_router
 
         app = FastAPI()
         app.include_router(health_router)

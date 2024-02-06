@@ -92,7 +92,7 @@ class HTTPPoller(AbstractNode):
     pipeline:
       nodes:
         HTTPPoller:
-          class: aineko.extras.HTTPPoller
+          class: aineko_plugins.nodes.http_poller.HTTPPoller
           outputs:
             - test_http
           node_params:
