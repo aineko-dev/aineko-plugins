@@ -1,6 +1,7 @@
 help:
 	@echo "lint - lint code"
 	@echo "install-dev - install all dependencies for development"
+	@echo "test - run tests"
 
 install-dev:
 	poetry install --with dev,test --all-extras
@@ -16,3 +17,6 @@ lint:
 	exit $$ERROR
 	# TODO: fix pylint to discover all projects \
 	# poetry run pylint aineko || ERROR=1; \
+
+test:
+	pytest . -sv
