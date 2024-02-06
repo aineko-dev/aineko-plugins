@@ -1,1 +1,7 @@
 # Aineko-Plugins-Websocket-Client
+
+The `aineko-plugins-websocket-client` package is a plugin for the [Aineko](https://github.com/aineko-dev/aineko) framework.
+
+It provides a node that hosts a websocket client, allowing for consuming payloads from a websocket and publishing them to a dataset.
+
+Detailed information can be found in the [docs](https://docs.aineko.dev/latest/plugins/websocket_client).
