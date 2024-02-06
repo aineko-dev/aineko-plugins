@@ -3,3 +3,6 @@ yaml-files:
   - "*.yaml"
   - "*.yml"
   - ".yamllint"
+
+ignore:
+  - .tox

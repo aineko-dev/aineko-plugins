@@ -55,7 +55,7 @@ markers = [
 analyse-fallback-blocks = false
 
 # Files or directories to be skipped. They should be base names, not paths.
-ignore = ["third_party", "CVS", "tests"]
+ignore = ["third_party", "CVS", "tests", ".tox"]
 
 # Files or directories matching the regular expression patterns are skipped. The
 # regex matches against base names, not paths. The default value ignores Emacs
@@ -472,6 +472,7 @@ line-length = 80
 [tool.pydocstyle]
 convention = "google"
 add-ignore = "D104,D301,D415"
+match-dir = '^(?!tests|\.).*' # ignore tests and dot directories.
 
 [tool.mypy]
 check_untyped_defs = true
@@ -488,7 +489,7 @@ disallow_untyped_defs = true
 # warn_return_any = true
 warn_unreachable = true
 
-exclude = ["build", "tests", "venv", "^aineko/templates/"]
+exclude = ["build", "tests", "venv", "dist"]
 plugins = ["pydantic.mypy"]
 
 [tool.pydantic-mypy]
