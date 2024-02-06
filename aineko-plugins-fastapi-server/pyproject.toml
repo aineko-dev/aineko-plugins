@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "aineko-plugins-fastapi-server"
 version = "0.0.1"
-description = ""
+description = "Aineko plugins for running a FastAPI server"
 authors = ["Convex Labs <engineering-admins@convexlabs.xyz>"]
 
 license = "Apache-2.0"

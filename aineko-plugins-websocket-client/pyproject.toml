@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "aineko-plugins-websocket-client"
 version = "0.0.1"
-description = ""
+description = "Aineko plugin for running a WebSocket client"
 authors = ["Convex Labs <engineering-admins@convexlabs.xyz>"]
 
 license = "Apache-2.0"
