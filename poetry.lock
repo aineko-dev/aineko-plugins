@@ -2101,6 +2101,7 @@ files = [
 
 [package.dependencies]
 snowballstemmer = ">=2.2.0"
+tomli = {version = ">=1.2.3", optional = true, markers = "python_version < \"3.11\" and extra == \"toml\""}
 
 [package.extras]
 toml = ["tomli (>=1.2.3)"]
@@ -3282,4 +3283,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.12"
-content-hash = "8946db76ca2c27d542065b267b53c40bd584570e5de9dd98cca318c6b2358c9c"
+content-hash = "a8bbfec214b699c1b1bb0644d4aaf858ab20e5b506b2123cfcadf6010d3f3afb"

@@ -21,7 +21,7 @@ aineko_style = "^0.0.1"
 black = "^23.7.0"
 isort = "^5.12.0"
 pre-commit = "^3.4.0"
-pydocstyle = "^6.3.0"
+pydocstyle = { extras = ["toml"], version = "^6.3.0" }
 pylint = "^2.17.5"
 yamllint = "^1.32.0"
 
