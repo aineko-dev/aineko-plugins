@@ -10,8 +10,7 @@ packages = [{ include = "aineko_plugins/nodes/http_poller", from = "." }]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
-# aineko = { version = "^0.2.7" }
-aineko = { path = "../../aineko", develop = true }
+aineko = { version = "^0.3.0" }
 requests = { version = "^2.31.0" }
 
 

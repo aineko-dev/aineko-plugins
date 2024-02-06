@@ -10,9 +10,7 @@ packages = [{ include = "aineko_plugins/nodes/websocket_client", from = "." }]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
-# aineko = { version = "^0.2.7" }
-aineko = { path = "../../aineko", develop = true }
-
+aineko = { version = "^0.3.0" }
 websocket-client = { version = "^1.7.0" }
 websockets = { version = "^12.0" }
 
