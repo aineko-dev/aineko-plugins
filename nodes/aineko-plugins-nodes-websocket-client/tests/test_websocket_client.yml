@@ -16,14 +16,14 @@ pipeline:
         - test_messages
 
     websocket_server:
-      class: aineko-plugins-nodes-websocket-client.tests.test_websocket_client.WebSocketServer
+      class: nodes.aineko-plugins-nodes-websocket-client.tests.test_websocket_client.WebSocketServer
       node_params:
         host: "127.0.0.1"
         port: 8765
         sleep: 0.01
 
     websocket_client_checker:
-      class: aineko-plugins-nodes-websocket-client.tests.test_websocket_client.WebSocketClientChecker
+      class: nodes.aineko-plugins-nodes-websocket-client.tests.test_websocket_client.WebSocketClientChecker
       inputs:
         - test_messages
       outputs:

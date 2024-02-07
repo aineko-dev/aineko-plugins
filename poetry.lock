@@ -19,9 +19,9 @@ PyYAML = "^6.0.1"
 ray = {version = "^2.9.0", extras = ["default"]}
 
 [package.extras]
-fastapi = ["fastapi (>=0.109.2,<0.110.0)", "uvicorn[standard] (>=0.22,<0.23)"]
-rest-poller = ["requests (>=2.31.0,<3.0.0)"]
-websocket-client = ["websocket-client (>=1.7.0,<2.0.0)", "websockets (>=12.0,<13.0)"]
+fastapi-server = ["aineko-plugins-nodes-fastapi-server (==0.0.1)"]
+http-poller = ["aineko-plugins-nodes-http-poller (==0.0.1)"]
+websocket-client = ["aineko-plugins-nodes-websocket-client (==0.0.1)"]
 
 [package.source]
 type = "directory"
@@ -43,7 +43,7 @@ uvicorn = {version = "^0.22", extras = ["standard"]}
 
 [package.source]
 type = "directory"
-url = "aineko-plugins-nodes-fastapi-server"
+url = "nodes/aineko-plugins-nodes-fastapi-server"
 
 [[package]]
 name = "aineko-plugins-nodes-http-poller"
@@ -60,7 +60,7 @@ requests = "^2.31.0"
 
 [package.source]
 type = "directory"
-url = "aineko-plugins-nodes-http-poller"
+url = "nodes/aineko-plugins-nodes-http-poller"
 
 [[package]]
 name = "aineko-plugins-nodes-websocket-client"
@@ -78,7 +78,7 @@ websockets = "^12.0"
 
 [package.source]
 type = "directory"
-url = "aineko-plugins-nodes-websocket-client"
+url = "nodes/aineko-plugins-nodes-websocket-client"
 
 [[package]]
 name = "aineko-style"
@@ -3283,4 +3283,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.12"
-content-hash = "c3b7b0ddc937ee7e69552403b637ee3bb781f0cb28ef703a82cd4d9971c2ace6"
+content-hash = "1e2e0da126150ca4ce15ba3d75baaeafe12acceedb7d2e262b73b2b4a621b314"
