@@ -30,7 +30,7 @@ url = "../aineko"
 [[package]]
 name = "aineko-plugins-nodes-fastapi-server"
 version = "0.0.1"
-description = "Aineko plugins for running a FastAPI server"
+description = "Aineko plugin for running a FastAPI server"
 optional = false
 python-versions = ">=3.8,<3.12"
 files = []
