@@ -17,7 +17,7 @@ packages = [{ include = "aineko_plugins/nodes/fastapi_server", from = "." }]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
-aineko = { version = "^0.3.0" }
+aineko = { version = "^0.3.1" }
 uvicorn = { version = "^0.22", extras = ["standard"] }
 fastapi = { version = "~0.109.2" }
 

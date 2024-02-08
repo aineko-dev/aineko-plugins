@@ -19,9 +19,9 @@ PyYAML = "^6.0.1"
 ray = {version = "^2.9.0", extras = ["default"]}
 
 [package.extras]
-fastapi-server = ["aineko-plugins-nodes-fastapi-server (==0.0.1)"]
-http-poller = ["aineko-plugins-nodes-http-poller (==0.0.1)"]
-websocket-client = ["aineko-plugins-nodes-websocket-client (==0.0.1)"]
+fastapi = ["fastapi (>=0.109.2,<0.110.0)", "uvicorn[standard] (>=0.22,<0.23)"]
+rest-poller = ["requests (>=2.31.0,<3.0.0)"]
+websocket-client = ["websocket-client (>=1.7.0,<2.0.0)", "websockets (>=12.0,<13.0)"]
 
 [package.source]
 type = "directory"
@@ -37,7 +37,7 @@ files = []
 develop = true
 
 [package.dependencies]
-aineko = "^0.3.0"
+aineko = "^0.3.1"
 fastapi = "~0.109.2"
 uvicorn = {version = "^0.22", extras = ["standard"]}
 
@@ -48,14 +48,14 @@ url = "nodes/aineko-plugins-nodes-fastapi-server"
 [[package]]
 name = "aineko-plugins-nodes-http-poller"
 version = "0.0.1"
-description = "Aineko plugin for running a HTTP poller."
+description = "Aineko plugin for running an HTTP poller."
 optional = false
 python-versions = ">=3.8,<3.12"
 files = []
 develop = true
 
 [package.dependencies]
-aineko = "^0.3.0"
+aineko = "^0.3.1"
 requests = "^2.31.0"
 
 [package.source]
@@ -72,7 +72,7 @@ files = []
 develop = true
 
 [package.dependencies]
-aineko = "^0.3.0"
+aineko = "^0.3.1"
 websocket-client = "^1.7.0"
 websockets = "^12.0"
 
