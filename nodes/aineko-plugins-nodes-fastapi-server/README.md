@@ -5,4 +5,4 @@ The `aineko-plugins-nodes-fastapi-server` package is a plugin for the [Aineko](h
 
 It provides a node that hosts a FastAPI server, allowing the user to define custom endpoints using FastAPI's syntax.
 
-Detailed information can be found in the [docs](https://docs.aineko.dev/latest/plugins/fastapi_server).
+Detailed information can be found in the [docs](https://docs.aineko.dev/latest/plugins/fastapi-server).

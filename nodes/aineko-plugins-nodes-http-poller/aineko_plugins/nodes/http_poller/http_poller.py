@@ -1,6 +1,6 @@
 # Copyright 2023 Aineko Authors
 # SPDX-License-Identifier: Apache-2.0
-"""Main module for running a HTTP poller with Aineko."""
+"""Main module for running an HTTP poller with Aineko."""
 
 import json
 import time

@@ -1,11 +1,18 @@
 [tool.poetry]
 name = "aineko-plugins-nodes-http-poller"
 version = "0.0.1"
-description = "Aineko plugin for running a HTTP poller."
+description = "Aineko plugin for running an HTTP poller."
 authors = ["Convex Labs <engineering-admins@convexlabs.xyz>"]
-
-license = "Apache-2.0"
 readme = "README.md"
+license = "Apache-2.0"
+homepage = "https://aineko.dev"
+repository = "https://github.com/aineko-dev/aineko-plugins/tree/develop/nodes/aineko-plugins-nodes-http-poller"
+documentation = "https://docs.aineko.dev/latest/plugins/http-poller"
+classifiers = [
+    "Typing :: Typed",
+    "Development Status :: 4 - Beta",
+    "Natural Language :: English",
+]
 packages = [{ include = "aineko_plugins/nodes/http_poller", from = "." }]
 
 [tool.poetry.dependencies]
