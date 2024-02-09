@@ -4,7 +4,7 @@ help:
 	@echo "test - run tests"
 
 install-dev:
-	poetry install --with dev,test --all-extras
+	poetry install --with dev,test,docs --all-extras
 
 lint:
 	@ERROR=0; \
@@ -20,3 +20,6 @@ lint:
 
 test:
 	pytest . -sv
+
+view-docs:
+	poetry run mkdocs serve --watch docs
