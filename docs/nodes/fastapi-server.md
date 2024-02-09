@@ -2,13 +2,7 @@
 
 ## Installation
 
-The FastAPI plugin can be installed using poetry with the following command `poetry add aineko[fastapi-server]` or by adding the following to `pyproject.toml` and running `poetry install`:
-
-:
-    ```yaml title="pyproject.toml" hl_lines="2"
-    [tool.poetry.dependencies]
-    aineko = {version = "^0.3.2", extras=["fastapi-server"]}
-    ```
+The FastAPI plugin can be installed using poetry with the following command `poetry add aineko-plugins-fastapi-server`.
 
 ## API Reference
 
