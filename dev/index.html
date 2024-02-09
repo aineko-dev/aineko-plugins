@@ -663,13 +663,7 @@
 <p>Aineko comes with a set of optional plugins that can be added to your pipeline. Currently these plugins are extra nodes with a focus on popular use-cases and best-practice patterns.
 To use one of these nodes, simply add it to your dependencies and reference it in the pipeline configuration.</p>
 <h2 id="adding-dependencies">Adding Dependencies</h2>
-<p>All plugins can be installed using poetry with the following command <code>poetry add aineko[plugin-name]</code> or by adding the following to <code>pyproject.toml</code> and running <code>poetry install</code>:
-:
-    <div class="highlight"><span class="filename">pyproject.toml</span><pre><span></span><code><span class="p p-Indicator">[</span><span class="nv">tool.poetry.dependencies</span><span class="p p-Indicator">]</span>
-<span class="l l-Scalar l-Scalar-Plain">python = &quot;&gt;=3.8,&lt;3.12&quot;</span>
-<span class="hll"><span class="l l-Scalar l-Scalar-Plain">aineko = {version = &quot;^0.3.2&quot;, extras=[&quot;plugin-name&quot;]}</span>
-</span></code></pre></div></p>
-<p>Once added, install the required dependencies using</p>
+<p>To add a plugin to your pipeline, you need to install it as a dependency. If you already have an Aineko project, you can add the plugin by executing <code>poetry add aineko-plugins-plugin-name</code>. For example to add the <code>fastapi-server</code> node, you would run <code>poetry add aineko-plugins-fastapi-server</code>.</p>
 <h2 id="reference-in-pipeline-configuration">Reference in Pipeline Configuration</h2>
 <p>To use such a node, simply reference the class in your pipeline configuration.</p>
 <p>:
