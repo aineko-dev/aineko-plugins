@@ -172,3 +172,11 @@ dmypy.json
 
 # Development drafts
 .drafts
+
+# Ignore everything under docs/.styles
+docs/.styles/*
+# But don't ignore the Vocab directory
+!docs/.styles/config/
+# Ignore everything under vocabularies, except Aineko
+docs/.styles/config/vocabularies/*
+!docs/.styles/config/vocabularies/Aineko
