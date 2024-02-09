@@ -155,7 +155,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "44:55:52:46:cf:d7:60:1d:8e:99:d4:f8:e8:8b:45:d2"
+            - "SHA256:yIWVa4aK9U15kHI2+1HoTOrpvWLktgJ/w0a6cboa/E0"
       - checkout
       - run: poetry add git+ssh://git@github.com/squidfunk/mkdocs-material-insiders.git#<<
           pipeline.parameters.mkdocs_material_version >> --group docs --no-interaction
