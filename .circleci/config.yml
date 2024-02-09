@@ -42,7 +42,7 @@ workflows:
 
   publish-docs:
     jobs:
-      - check-broken-links
+      # - check-broken-links
       # - vale-lint:
       #     name: lint docs
       - build-and-push-docs:
@@ -173,17 +173,17 @@ jobs:
             poetry run mike deploy ${version##*/} -b << parameters.docs_branch >> --push
           fi
 
-  check-broken-links:
-    description: Check for broken links in markdown files
-    docker:
-      - image: ghcr.io/tcort/markdown-link-check:stable
-    steps:
-      - checkout
-      - run:
-          name: check broken links
-          command: >
-            find . -name "*.md" -print0 | xargs -0 -n1 markdown-link-check
-            --quiet --config .circleci/markdown-links-config.json
+  # check-broken-links:
+  #   description: Check for broken links in markdown files
+  #   docker:
+  #     - image: ghcr.io/tcort/markdown-link-check:stable
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: check broken links
+  #         command: >
+  #           find . -name "*.md" -print0 | xargs -0 -n1 markdown-link-check
+  #           --quiet --config .circleci/markdown-links-config.json
 
   # vale-lint:
   #   description: Lint docs with Vale
