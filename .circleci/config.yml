@@ -36,6 +36,33 @@ workflows:
           requires:
             - python-checks
 
+  publish-docs:
+    jobs:
+      - check-broken-links
+      # - vale-lint:
+      #     name: lint docs
+      - build-and-push-docs:
+          name: publish dev docs
+          filters:
+            branches:
+              only: develop
+      # - build-and-push-docs:
+      #     name: publish versioned docs
+      #     filters:
+      #       branches:
+      #         ignore: /.*/
+      #       tags:
+      #         only: /\d+\.\d+\.\d+$/
+      #     version: << pipeline.git.tag >>
+      #     tag: true
+      - build-and-push-docs:
+          name: publish staging docs
+          docs_branch: docs-staging
+          version: << pipeline.git.branch >>
+          filters:
+            branches:
+              only: /^docs\/.*/
+
 jobs:
   integration-tests:
     parameters:
@@ -104,3 +131,61 @@ jobs:
           command: |
             poetry run mypy --install-types --non-interactive
             poetry run mypy .
+
+  build-and-push-docs:
+    parameters:
+      docs_branch:
+        type: string
+        default: docs-site
+        description: Branch to publish docs site files to
+      version:
+        type: string
+        default: dev
+        description: Version of docs to publish
+      tag:
+        type: boolean
+        default: false
+        description: If version is a tag
+    docker:
+      - image: cimg/python:<< pipeline.parameters.python_version >>
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "44:55:52:46:cf:d7:60:1d:8e:99:d4:f8:e8:8b:45:d2"
+      - checkout
+      - run: poetry add git+ssh://git@github.com/squidfunk/mkdocs-material-insiders.git#<<
+          pipeline.parameters.mkdocs_material_version >> --group docs --no-interaction
+          --quiet
+      - run: poetry install --with docs --no-interaction --quiet
+      - run: git config user.name aineko-ci
+      - run: git config user.email engineering-admins@convexlabs.xyz
+      - run: |
+          if [ "<< parameters.tag >>" = "true" ]; then
+            version=$(echo "<< parameters.version >>" | cut -d'.' -f1,2)
+            poetry run mike deploy $version latest -b << parameters.docs_branch >> --push --update-aliases
+            poetry run mike set-default $version -b << parameters.docs_branch >> --push
+          else
+            version="<< parameters.version >>"
+            poetry run mike deploy ${version##*/} -b << parameters.docs_branch >> --push
+          fi
+
+  check-broken-links:
+    description: Check for broken links in markdown files
+    docker:
+      - image: ghcr.io/tcort/markdown-link-check:stable
+    steps:
+      - checkout
+      - run:
+          name: check broken links
+          command: >
+            find . -name "*.md" -print0 | xargs -0 -n1 markdown-link-check
+            --quiet --config .circleci/markdown-links-config.json
+
+  # vale-lint:
+  #   description: Lint docs with Vale
+  #   docker:
+  #     - image: jdkato/vale:v3.0.3
+  #   steps:
+  #     - checkout
+  #     - run: vale sync
+  #     - run: vale --glob="[!.]*.{md,adoc}" --config=.vale.ini .
