@@ -38,6 +38,19 @@ pytest = "^7.4.1"
 pytest-cov = "^4.1.0"
 pytest-subtests = "^0.11.0"
 
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+mkdocs-material = "9.5.2"
+mkdocs-glightbox = "^0.3.4"
+mkdocstrings = { extras = ["python"], version = "^0.23.0" }
+mike = "^2.0.0"
+aineko-plugins-nodes-fastapi-server = { version = "0.0.1" }
+aineko-plugins-nodes-http-poller = { version = "0.0.1" }
+aineko-plugins-nodes-websocket-client = { version = "0.0.1" }
+
+
 [tool.pytest.ini_options]
 filterwarnings = [
     # Ignore this depracation warning because of the way virtualenvs is implemented
