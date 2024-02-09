@@ -5,16 +5,8 @@ To use one of these nodes, simply add it to your dependencies and reference it i
 
 ## Adding Dependencies
 
-All plugins can be installed using poetry with the following command `poetry add aineko[plugin-name]` or by adding the following to `pyproject.toml` and running `poetry install`:
-:
-    ```yaml title="pyproject.toml" hl_lines="3"
-    [tool.poetry.dependencies]
-    python = ">=3.8,<3.12"
-    aineko = {version = "^0.3.2", extras=["plugin-name"]}
-    ```
 
-Once added, install the required dependencies using
-
+To add a plugin to your pipeline, you need to install it as a dependency. If you already have an Aineko project, you can add the plugin by executing `poetry add aineko-plugins-plugin-name`. For example to add the `fastapi-server` node, you would run `poetry add aineko-plugins-fastapi-server`.
 
 ## Reference in Pipeline Configuration
 
