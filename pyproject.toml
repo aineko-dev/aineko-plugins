@@ -7,6 +7,7 @@ readme = "README.md"
 license = "Apache-2.0"
 homepage = "https://aineko.dev/"
 repository = "https://github.com/aineko-dev/aineko-plugins"
+documentation = "https://plugin-docs.aineko.dev"
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"

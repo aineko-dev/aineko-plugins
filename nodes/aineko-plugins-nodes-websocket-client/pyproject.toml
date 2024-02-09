@@ -7,7 +7,7 @@ readme = "README.md"
 license = "Apache-2.0"
 homepage = "https://aineko.dev"
 repository = "https://github.com/aineko-dev/aineko-plugins/tree/develop/nodes/aineko-plugins-nodes-websocket-client"
-documentation = "https://docs.aineko.dev/latest/plugins/websocket-client"
+documentation = "https://plugin-docs.aineko.dev/dev/nodes/websocket-client"
 classifiers = [
     "Typing :: Typed",
     "Development Status :: 4 - Beta",
