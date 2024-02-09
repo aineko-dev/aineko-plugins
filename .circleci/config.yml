@@ -7,6 +7,10 @@ parameters:
     description: Version to python to use
     type: string
     default: "3.8"
+  mkdocs_material_version:
+    description: Version of mkdocs-material-insiders to use
+    type: string
+    default: "9.5.2-insiders-4.47.1"
 
 workflows:
   continuous-integration:
