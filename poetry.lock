@@ -2,30 +2,28 @@
 
 [[package]]
 name = "aineko"
-version = "0.3.2"
+version = "0.3.1"
 description = "Aineko, a data integration framework."
 optional = false
 python-versions = ">=3.8,<3.12"
-files = []
-develop = true
+files = [
+    {file = "aineko-0.3.1-py3-none-any.whl", hash = "sha256:2a5189b15b645e153dbcec0729b72b91df64b791172eefd91ba3d364b207e33c"},
+    {file = "aineko-0.3.1.tar.gz", hash = "sha256:e1789fe856c0b5bf34863adeed88bbdb63bbda5fd2810c1cd0981df828fbaa70"},
+]
 
 [package.dependencies]
-click = "^8.1.7"
-confluent-kafka = "~2.2.0"
-cookiecutter = "^2.4.0"
+click = ">=8.1.7,<9.0.0"
+confluent-kafka = ">=2.2.0,<2.3.0"
+cookiecutter = ">=2.4.0,<3.0.0"
 pydantic = ">=2.5"
-pygithub = "~=2.1.1"
-PyYAML = "^6.0.1"
-ray = {version = "^2.9.0", extras = ["default"]}
+pygithub = ">=2.1.1,<2.2.0"
+PyYAML = ">=6.0.1,<7.0.0"
+ray = {version = ">=2.9.0,<3.0.0", extras = ["default"]}
 
 [package.extras]
-fastapi-server = ["aineko-plugins-nodes-fastapi-server (==0.0.1)"]
-http-poller = ["aineko-plugins-nodes-http-poller (==0.0.1)"]
-websocket-client = ["aineko-plugins-nodes-websocket-client (==0.0.1)"]
-
-[package.source]
-type = "directory"
-url = "../aineko"
+fastapi = ["fastapi (>=0.109.2,<0.110.0)", "uvicorn[standard] (>=0.22,<0.23)"]
+rest-poller = ["requests (>=2.31.0,<3.0.0)"]
+websocket-client = ["websocket-client (>=1.7.0,<2.0.0)", "websockets (>=12.0,<13.0)"]
 
 [[package]]
 name = "aineko-plugins-nodes-fastapi-server"
@@ -3766,4 +3764,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.12"
-content-hash = "0551b30f3be83a9cee2abb86077f5b4fd0d3c36e92b8c1f1a49d3523cde530f8"
+content-hash = "d6a7529bede3b5e086d493d40ce58342157eb8f3a7a146aa98184004588e2d43"
