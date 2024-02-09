@@ -7,6 +7,7 @@ readme = "README.md"
 license = "Apache-2.0"
 homepage = "https://aineko.dev/"
 repository = "https://github.com/aineko-dev/aineko-plugins"
+documentation = "https://plugin-docs.aineko.dev"
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
@@ -46,9 +47,9 @@ mkdocs-material = "9.5.2"
 mkdocs-glightbox = "^0.3.4"
 mkdocstrings = { extras = ["python"], version = "^0.23.0" }
 mike = "^2.0.0"
-aineko-plugins-nodes-fastapi-server = { version = "0.0.1" }
-aineko-plugins-nodes-http-poller = { version = "0.0.1" }
-aineko-plugins-nodes-websocket-client = { version = "0.0.1" }
+aineko-plugins-nodes-fastapi-server = { version = "0.0.2" }
+aineko-plugins-nodes-http-poller = { version = "0.0.2" }
+aineko-plugins-nodes-websocket-client = { version = "0.0.2" }
 
 
 [tool.pytest.ini_options]

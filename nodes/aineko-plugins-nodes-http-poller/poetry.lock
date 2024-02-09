@@ -2,13 +2,13 @@
 
 [[package]]
 name = "aineko"
-version = "0.3.1"
+version = "0.3.2"
 description = "Aineko, a data integration framework."
 optional = false
 python-versions = ">=3.8,<3.12"
 files = [
-    {file = "aineko-0.3.1-py3-none-any.whl", hash = "sha256:2a5189b15b645e153dbcec0729b72b91df64b791172eefd91ba3d364b207e33c"},
-    {file = "aineko-0.3.1.tar.gz", hash = "sha256:e1789fe856c0b5bf34863adeed88bbdb63bbda5fd2810c1cd0981df828fbaa70"},
+    {file = "aineko-0.3.2-py3-none-any.whl", hash = "sha256:c26cb1b9bfd2102fcffb750dfaea71e70b721cb6423fa17f79f92f9280660688"},
+    {file = "aineko-0.3.2.tar.gz", hash = "sha256:2c9c983ba6978f444e5b4ce334486d37591607d089af29990176c538f1e67b28"},
 ]
 
 [package.dependencies]
@@ -19,11 +19,6 @@ pydantic = ">=2.5"
 pygithub = ">=2.1.1,<2.2.0"
 PyYAML = ">=6.0.1,<7.0.0"
 ray = {version = ">=2.9.0,<3.0.0", extras = ["default"]}
-
-[package.extras]
-fastapi = ["fastapi (>=0.109.2,<0.110.0)", "uvicorn[standard] (>=0.22,<0.23)"]
-rest-poller = ["requests (>=2.31.0,<3.0.0)"]
-websocket-client = ["websocket-client (>=1.7.0,<2.0.0)", "websockets (>=12.0,<13.0)"]
 
 [[package]]
 name = "aiohttp"
@@ -2281,4 +2276,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.12"
-content-hash = "917bafe99a6d3373a51ba088222086cf0016d4406f37dfba8da61118da8468a0"
+content-hash = "e75038b4c155cc1674f885580ca2b1466d4399b3519ba93efe703ac833b4733f"

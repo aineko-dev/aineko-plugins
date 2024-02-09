@@ -2,13 +2,13 @@
 
 [[package]]
 name = "aineko"
-version = "0.3.1"
+version = "0.3.2"
 description = "Aineko, a data integration framework."
 optional = false
 python-versions = ">=3.8,<3.12"
 files = [
-    {file = "aineko-0.3.1-py3-none-any.whl", hash = "sha256:2a5189b15b645e153dbcec0729b72b91df64b791172eefd91ba3d364b207e33c"},
-    {file = "aineko-0.3.1.tar.gz", hash = "sha256:e1789fe856c0b5bf34863adeed88bbdb63bbda5fd2810c1cd0981df828fbaa70"},
+    {file = "aineko-0.3.2-py3-none-any.whl", hash = "sha256:c26cb1b9bfd2102fcffb750dfaea71e70b721cb6423fa17f79f92f9280660688"},
+    {file = "aineko-0.3.2.tar.gz", hash = "sha256:2c9c983ba6978f444e5b4ce334486d37591607d089af29990176c538f1e67b28"},
 ]
 
 [package.dependencies]
@@ -20,14 +20,9 @@ pygithub = ">=2.1.1,<2.2.0"
 PyYAML = ">=6.0.1,<7.0.0"
 ray = {version = ">=2.9.0,<3.0.0", extras = ["default"]}
 
-[package.extras]
-fastapi = ["fastapi (>=0.109.2,<0.110.0)", "uvicorn[standard] (>=0.22,<0.23)"]
-rest-poller = ["requests (>=2.31.0,<3.0.0)"]
-websocket-client = ["websocket-client (>=1.7.0,<2.0.0)", "websockets (>=12.0,<13.0)"]
-
 [[package]]
 name = "aineko-plugins-nodes-fastapi-server"
-version = "0.0.1"
+version = "0.0.2"
 description = "Aineko plugin for running a FastAPI server"
 optional = false
 python-versions = ">=3.8,<3.12"
@@ -35,7 +30,7 @@ files = []
 develop = true
 
 [package.dependencies]
-aineko = "^0.3.1"
+aineko = "^0.3.2"
 fastapi = "~0.109.2"
 uvicorn = {version = "^0.22", extras = ["standard"]}
 
@@ -45,7 +40,7 @@ url = "nodes/aineko-plugins-nodes-fastapi-server"
 
 [[package]]
 name = "aineko-plugins-nodes-http-poller"
-version = "0.0.1"
+version = "0.0.2"
 description = "Aineko plugin for running an HTTP poller."
 optional = false
 python-versions = ">=3.8,<3.12"
@@ -53,7 +48,7 @@ files = []
 develop = true
 
 [package.dependencies]
-aineko = "^0.3.1"
+aineko = "^0.3.2"
 requests = "^2.31.0"
 
 [package.source]
@@ -62,7 +57,7 @@ url = "nodes/aineko-plugins-nodes-http-poller"
 
 [[package]]
 name = "aineko-plugins-nodes-websocket-client"
-version = "0.0.1"
+version = "0.0.2"
 description = "Aineko plugin for running a WebSocket client"
 optional = false
 python-versions = ">=3.8,<3.12"
@@ -70,7 +65,7 @@ files = []
 develop = true
 
 [package.dependencies]
-aineko = "^0.3.1"
+aineko = "^0.3.2"
 websocket-client = "^1.7.0"
 websockets = "^12.0"
 
@@ -3764,4 +3759,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.12"
-content-hash = "d6a7529bede3b5e086d493d40ce58342157eb8f3a7a146aa98184004588e2d43"
+content-hash = "0001f3a576da5cb40d158d4ddd2d3945a68e338fa6a08af7e5f112b67fe38a3b"
