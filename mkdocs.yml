@@ -1,0 +1,101 @@
+# Copyright 2023 Aineko Authors
+# SPDX-License-Identifier: Apache-2.0
+site_name: Aineko
+site_url: https://plugin-docs.aineko.dev/
+repo_name: aineko-dev/aineko-plugins
+repo_url: https://github.com/aineko-dev/aineko-plugins
+edit_uri: edit/develop/docs/
+theme:
+  name: material
+  palette:
+    scheme: aineko
+  icon:
+    repo: fontawesome/brands/github
+  favicon: assets/favicon_green.svg
+  logo: assets/favicon_white.svg
+  font:
+    size: 20
+  features:
+    - content.action.edit
+    - content.code.copy
+    - navigation.tabs
+    - navigation.path
+    - navigation.footer
+    - navigation.indexes
+    - navigation.tracking
+    - navigation.top
+    - toc.follow
+    - content.code.annotate
+extra_css:
+  - stylesheets/extra.css
+extra:
+  generator: false
+  version:
+    provider: mike
+  analytics:
+    provider: google
+    property: G-395240980
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/aineko-dev/aineko-plugins
+    - icon: fontawesome/brands/chrome
+      link: https://aineko.dev
+    - icon: fontawesome/brands/slack
+      link: https://aineko-dev.slack.com
+copyright: Copyright &copy; 2023 Convex Research
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - def_list
+  - attr_list
+  - md_in_html
+  - mkdocs-click
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - glightbox
+  - search
+  - mike:
+      alias_type: copy
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            extension:
+              - griffe_typingdoc
+            preload_modules:
+              - pydantic
+            merge_init_into_class: true
+            separate_signature: true
+            show_if_no_docstring: true
+            show_root_heading: true
+            show_signature_annotations: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            signature_crossrefs: true
+            summary: true
+
+nav:
+  - Aineko: https://docs.aineko.dev
+  - Aineko Plugins:
+      - index.md
+      - Nodes:
+          - nodes/fastapi-server.md
+          - nodes/websocket-client.md
+          - nodes/http-poller.md
+
+  - Aineko Cloud: https://cloud-docs.aineko.dev
