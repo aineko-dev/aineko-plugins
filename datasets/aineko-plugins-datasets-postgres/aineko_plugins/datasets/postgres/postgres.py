@@ -5,11 +5,10 @@ import os
 from typing import Dict, Optional, Union
 
 import boto3
+from aineko.core.dataset import AsyncAbstractDataset, DatasetError
 from mypy_boto3_rds import RDSClient
 from psycopg import sql
 from psycopg_pool import AsyncConnectionPool
-
-from aineko.core.dataset import AsyncAbstractDataset, DatasetError
 
 
 class AWSDatasetHelper:
@@ -63,7 +62,7 @@ class AWSDatasetHelper:
         return db_instance["Endpoint"]["Address"]
 
 
-class Postgres(AsyncAbstractDataset):
+class AsyncPostgresDataset(AsyncAbstractDataset):
     """Dataset to connect to a table in a PostgreSQL database."""
 
     def __init__(

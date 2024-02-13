@@ -3,8 +3,10 @@
 """Tests for Postgres dataset."""
 
 import pytest
-
-from aineko.extras import AWSDatasetHelper, Postgres
+from aineko_plugins.datasets.postgres.postgres import (
+    AsyncPostgresDataset,
+    AWSDatasetHelper,
+)
 
 
 class TestAWSDatasetHelper:
@@ -18,9 +20,9 @@ class TestAWSDatasetHelper:
 
 
 @pytest.fixture(scope="module")
-def postgres_table() -> Postgres:
+def postgres_table() -> AsyncPostgresDataset:
     """Create a postgres table for testing."""
-    dataset = Postgres(
+    dataset = AsyncPostgresDataset(
         name="test_table",
         host="shawn-dataset.ch4nbfnhdik6.us-east-1.rds.amazonaws.com",
         dbname="postgres_db",
@@ -35,7 +37,7 @@ class TestPostgres:
     """Tests for Postgres dataset."""
 
     @pytest.mark.asyncio
-    async def test_create(self, postgres_table: Postgres):
+    async def test_create(self, postgres_table: AsyncPostgresDataset):
         """Test create."""
         await postgres_table.connect()
 
@@ -45,7 +47,7 @@ class TestPostgres:
         assert await postgres_table.exists()
 
     @pytest.mark.asyncio
-    async def test_delete(self, postgres_table: Postgres):
+    async def test_delete(self, postgres_table: AsyncPostgresDataset):
         """Test delete."""
         await postgres_table.connect()
 
@@ -53,7 +55,7 @@ class TestPostgres:
         assert await postgres_table.exists() is False
 
     @pytest.mark.asyncio
-    async def test_exists(self, postgres_table: Postgres):
+    async def test_exists(self, postgres_table: AsyncPostgresDataset):
         """Test exists."""
         await postgres_table.connect()
 
