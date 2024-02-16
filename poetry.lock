@@ -6,19 +6,37 @@ version = "0.4.0"
 description = "Aineko, a data integration framework."
 optional = false
 python-versions = ">=3.8,<3.12"
-files = [
-    {file = "aineko-0.4.0-py3-none-any.whl", hash = "sha256:7f502b3fee1326a093c3eb6ba5c2e37e726fa5305ecf0f351b4e7e7bc01074da"},
-    {file = "aineko-0.4.0.tar.gz", hash = "sha256:7f9630403626b94d6b7952dfd3998c590d7ccf1021d9e8a00756af272a2b05b9"},
-]
+files = []
+develop = true
 
 [package.dependencies]
-click = ">=8.1.7,<9.0.0"
-confluent-kafka = ">=2.2.0,<2.3.0"
-cookiecutter = ">=2.4.0,<3.0.0"
+click = "^8.1.7"
+confluent-kafka = "~2.2.0"
+cookiecutter = "^2.4.0"
 pydantic = ">=2.5"
-pygithub = ">=2.1.1,<2.2.0"
-PyYAML = ">=6.0.1,<7.0.0"
-ray = {version = ">=2.9.0,<3.0.0", extras = ["default"]}
+pygithub = "~=2.1.1"
+PyYAML = "^6.0.1"
+ray = {version = "^2.9.0", extras = ["default"]}
+
+[package.source]
+type = "directory"
+url = "../aineko"
+
+[[package]]
+name = "aineko-plugins-datasets-postgres"
+version = "0.0.1"
+description = "Aineko plugin for interacting with PostgreSQL datasets"
+optional = false
+python-versions = ">=3.8,<3.12"
+files = []
+develop = true
+
+[package.dependencies]
+aineko = {path = "../../../aineko", develop = true}
+
+[package.source]
+type = "directory"
+url = "datasets/aineko-plugins-datasets-postgres"
 
 [[package]]
 name = "aineko-plugins-nodes-fastapi-server"
@@ -3759,4 +3777,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.12"
-content-hash = "4fd9ffa6e3051abc8a7476ced66f311f1076fbb9fa430e4c054990d9132b57a9"
+content-hash = "45381234d71ac85d1730226b36cdff0678835bbae91a92590ca44fc56c54fd50"

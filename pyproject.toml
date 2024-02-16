@@ -29,6 +29,7 @@ yamllint = "^1.32.0"
 aineko_plugins_nodes_fastapi_server = { path = "./nodes/aineko-plugins-nodes-fastapi-server", develop = true }
 aineko_plugins_nodes_websocket_client = { path = "./nodes/aineko-plugins-nodes-websocket-client", develop = true }
 aineko_plugins_nodes_http_poller = { path = "./nodes/aineko-plugins-nodes-http-poller", develop = true }
+aineko_plugins_datasets_postgres = { path = "./datasets/aineko-plugins-datasets-postgres", develop = true }
 
 [tool.poetry.group.test]
 optional = true
