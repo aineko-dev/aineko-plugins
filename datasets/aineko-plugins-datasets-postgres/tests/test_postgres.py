@@ -1,6 +1,6 @@
 # Copyright 2023 Aineko Authors
 # SPDX-License-Identifier: Apache-2.0
-"""Tests for Postgres dataset."""
+"""Tests for AsyncPostgresDataset dataset."""
 # pylint: disable=redefined-outer-name
 from contextlib import asynccontextmanager
 
