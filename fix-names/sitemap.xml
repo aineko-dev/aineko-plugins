@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://plugin-docs.aineko.dev/fix-names/</loc>
+         <lastmod>2024-02-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://plugin-docs.aineko.dev/fix-names/nodes/fastapi-server/</loc>
+         <lastmod>2024-02-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://plugin-docs.aineko.dev/fix-names/nodes/http-poller/</loc>
+         <lastmod>2024-02-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://plugin-docs.aineko.dev/fix-names/nodes/websocket-client/</loc>
+         <lastmod>2024-02-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
