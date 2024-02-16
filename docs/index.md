@@ -6,7 +6,7 @@ To use one of these nodes, simply add it to your dependencies and reference it i
 ## Adding Dependencies
 
 
-To add a plugin to your pipeline, you need to install it as a dependency. If you already have an Aineko project, you can add the plugin by executing `poetry add aineko-plugins-plugin-name`. For example to add the `fastapi-server` node, you would run `poetry add aineko-plugins-fastapi-server`.
+To add a plugin to your pipeline, you need to install it as a dependency. If you already have an Aineko project, you can add the plugin by executing `poetry add aineko-plugins-plugin-name`. For example to add the `fastapi-server` node, you would run `poetry add aineko-plugins-nodes-fastapi-server`.
 
 ## Reference in Pipeline Configuration
 
