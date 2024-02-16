@@ -3,7 +3,7 @@
 """Dataset to connect to PostgreSQL databases."""
 import os
 from types import TracebackType
-from typing import Any, Dict, List, Optional, Tuple, Type
+from typing import Any, Dict, List, Optional, Type
 
 import boto3
 from aineko.core.dataset import AsyncAbstractDataset, DatasetError
