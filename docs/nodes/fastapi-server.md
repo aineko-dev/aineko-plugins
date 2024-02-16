@@ -2,7 +2,7 @@
 
 ## Installation
 
-The FastAPI plugin can be installed using poetry with the following command `poetry add aineko-plugins-fastapi-server`.
+The FastAPI plugin can be installed using poetry with the following command `poetry add aineko-plugins-nodes-fastapi-server`.
 
 ## API Reference
 

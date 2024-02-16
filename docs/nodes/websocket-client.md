@@ -1,6 +1,6 @@
 # WebSocketClient Node
 
-The WebSocketClient plugin can be installed using poetry with the following command `poetry add aineko-plugins-websocket-client`.
+The WebSocketClient plugin can be installed using poetry with the following command `poetry add aineko-plugins-nodes-websocket-client`.
 
 ## API Reference
 

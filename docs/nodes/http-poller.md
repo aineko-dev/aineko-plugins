@@ -1,6 +1,6 @@
 # HTTPPoller Node
 
-The HTTPPoller plugin can be installed using poetry with the following command `poetry add aineko-plugins-http-poller`.
+The HTTPPoller plugin can be installed using poetry with the following command `poetry add aineko-plugins-nodes-http-poller`.
 
 ## API Reference
 
