@@ -6,19 +6,37 @@ version = "0.3.2"
 description = "Aineko, a data integration framework."
 optional = false
 python-versions = ">=3.8,<3.12"
-files = [
-    {file = "aineko-0.3.2-py3-none-any.whl", hash = "sha256:c26cb1b9bfd2102fcffb750dfaea71e70b721cb6423fa17f79f92f9280660688"},
-    {file = "aineko-0.3.2.tar.gz", hash = "sha256:2c9c983ba6978f444e5b4ce334486d37591607d089af29990176c538f1e67b28"},
-]
+files = []
+develop = true
 
 [package.dependencies]
-click = ">=8.1.7,<9.0.0"
-confluent-kafka = ">=2.2.0,<2.3.0"
-cookiecutter = ">=2.4.0,<3.0.0"
+click = "^8.1.7"
+confluent-kafka = "~2.2.0"
+cookiecutter = "^2.4.0"
 pydantic = ">=2.5"
-pygithub = ">=2.1.1,<2.2.0"
-PyYAML = ">=6.0.1,<7.0.0"
-ray = {version = ">=2.9.0,<3.0.0", extras = ["default"]}
+pygithub = "~=2.1.1"
+PyYAML = "^6.0.1"
+ray = {version = "^2.9.0", extras = ["default"]}
+
+[package.source]
+type = "directory"
+url = "../aineko"
+
+[[package]]
+name = "aineko-plugins-datasets-postgres"
+version = "0.0.1"
+description = "Aineko plugin for interacting with PostgreSQL datasets"
+optional = false
+python-versions = ">=3.8,<3.12"
+files = []
+develop = true
+
+[package.dependencies]
+aineko = {path = "../../../aineko", develop = true}
+
+[package.source]
+type = "directory"
+url = "datasets/aineko-plugins-datasets-postgres"
 
 [[package]]
 name = "aineko-plugins-nodes-fastapi-server"
@@ -75,13 +93,13 @@ url = "nodes/aineko-plugins-nodes-websocket-client"
 
 [[package]]
 name = "aineko-style"
-version = "0.0.1"
+version = "0.0.2"
 description = "Custom pylint rules for aineko-dev codebases."
 optional = false
-python-versions = ">=3.8,<3.12"
+python-versions = ">=3.8,<3.13"
 files = [
-    {file = "aineko_style-0.0.1-py3-none-any.whl", hash = "sha256:5c45315c28505212ba490746959a45db28585803d3c421972b2790e27e457f66"},
-    {file = "aineko_style-0.0.1.tar.gz", hash = "sha256:3e4b895f836df9f0a0e8b38f949612cadb953b227f501bb2624db424b182824e"},
+    {file = "aineko_style-0.0.2-py3-none-any.whl", hash = "sha256:6c6d5d7681e3010c16ebb51d7e1aa659cc493cf4ea56b57dca28a09a0b5676cc"},
+    {file = "aineko_style-0.0.2.tar.gz", hash = "sha256:62dcd950d2b1819dffdc404d89174e486ebc79e16f46d82ec02ea94d124d0a29"},
 ]
 
 [package.dependencies]
@@ -3759,4 +3777,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.12"
-content-hash = "0001f3a576da5cb40d158d4ddd2d3945a68e338fa6a08af7e5f112b67fe38a3b"
+content-hash = "45381234d71ac85d1730226b36cdff0678835bbae91a92590ca44fc56c54fd50"
