@@ -19,7 +19,7 @@ lint:
 	# poetry run pylint aineko || ERROR=1; \
 
 test:
-	pytest . -sv
+	pytest . -sv --cov=aineko_plugins
 
 view-docs:
 	poetry run mkdocs serve --watch docs
