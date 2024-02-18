@@ -6,3 +6,4 @@ yaml-files:
 
 ignore:
   - .tox
+  - docs/.styles
