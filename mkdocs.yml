@@ -92,6 +92,8 @@ nav:
   - Aineko: https://docs.aineko.dev
   - Aineko Plugins:
       - index.md
+      - Datasets:
+          - datasets/postgres.md
       - Nodes:
           - nodes/fastapi-server.md
           - nodes/websocket-client.md
