@@ -99,10 +99,10 @@ class AsyncPostgresDataset(AsyncAbstractDataset):
             password: Password to connect to the database.
         """
         self.name = name
-        self.host = host
-        self.dbname = dbname
-        self.user = user
-        self.password = password
+        self._host = host
+        self._dbname = dbname
+        self._user = user
+        self._password = password
 
         self._pool: AsyncConnectionPool
 
@@ -118,8 +118,8 @@ class AsyncPostgresDataset(AsyncAbstractDataset):
             An instance of AsyncPostgresDataset with an open connection pool.
         """
         self._pool = AsyncConnectionPool(
-            f"dbname={self.dbname} user={self.user} password={self.password}"
-            f" host={self.host}",
+            f"dbname={self._dbname} user={self._user} password={self._password}"
+            f" host={self._host}",
             open=False,
         )
         await self._pool.open()
