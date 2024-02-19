@@ -7,7 +7,7 @@ description = "Aineko, a data integration framework."
 optional = false
 python-versions = ">=3.8,<3.12"
 files = []
-develop = true
+develop = false
 
 [package.dependencies]
 click = "^8.1.7"
@@ -19,8 +19,10 @@ PyYAML = "^6.0.1"
 ray = {version = "^2.9.0", extras = ["default"]}
 
 [package.source]
-type = "directory"
-url = "../aineko"
+type = "git"
+url = "git@github.com:aineko-dev/aineko.git"
+reference = "feat/async-abstract-dataset"
+resolved_reference = "071bcd23389a34dedd9fb76f1b9f0bd98372db84"
 
 [[package]]
 name = "aineko-plugins-datasets-postgres"
@@ -32,7 +34,7 @@ files = []
 develop = true
 
 [package.dependencies]
-aineko = {path = "../../../aineko", develop = true}
+aineko = {git = "git@github.com:aineko-dev/aineko.git", branch = "feat/async-abstract-dataset"}
 boto3 = "^1.34.30"
 boto3-stubs = "^1.34.40"
 mypy-boto3-rds = "^1.34.30"
