@@ -122,14 +122,14 @@ jobs:
       - run: poetry run isort .
       - run: >
           poetry run black .
-      # - run: poetry run pydocstyle << parameters.prj_dir >>
-      - run: poetry run pylint .
+      - run: poetry run pydocstyle .
+      - run: poetry run pylint $(git ls-files "*.py" | grep -vE "/tests/" )
       - run: poetry run yamllint -c yamllint.yaml .
       - run: |
           poetry run pre-commit install
           poetry run pre-commit run --all
       - run: >
-          poetry run pytest . -m "<< parameters.markers >>" -svv
+          poetry run pytest . -m "<< parameters.markers >>" -sv --cov=aineko_plugins
       - run:
           name: mypy
           command: |
