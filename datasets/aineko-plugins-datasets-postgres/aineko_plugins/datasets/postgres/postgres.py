@@ -1,6 +1,6 @@
 # Copyright 2023 Aineko Authors
 # SPDX-License-Identifier: Apache-2.0
-"""Dataset to connect to PostgreSQL databases."""
+"""Aineko plugin for using PostgreSQL databases as datasets."""
 import os
 from types import TracebackType
 from typing import Any, Dict, List, Optional, Type
@@ -65,7 +65,21 @@ class AWSDatasetHelper:
 
 
 class AsyncPostgresDataset(AsyncAbstractDataset):
-    """Dataset to connect to a table in a PostgreSQL database."""
+    """Asynchronous dataset for interacting with a PostgreSQL table.
+
+    Example usage:
+        ```python
+        async with AsyncPostgresDataset(
+            name="my_table",
+            host="localhost",
+            dbname="my_db",
+            user="my_user",
+            password="my_password",
+        ) as dataset:
+            result = await dataset.read("SELECT * FROM my_table")
+            print(result)
+        ```
+    """
 
     def __init__(
         self,
@@ -75,6 +89,15 @@ class AsyncPostgresDataset(AsyncAbstractDataset):
         user: str,
         password: str,
     ):
+        """Initialize the AsyncPostgresDataset.
+
+        Args:
+            name: Name of the table in the database.
+            host: Hostname of the database server.
+            dbname: Name of the database.
+            user: Username to connect to the database.
+            password: Password to connect to the database.
+        """
         self.name = name
         self.host = host
         self.dbname = dbname
