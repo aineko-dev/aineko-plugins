@@ -14,12 +14,11 @@ lint:
 	poetry run yamllint -c yamllint.yaml . || ERROR=1; \
 	poetry run mypy . || ERROR=1; \
 	poetry run pre-commit run --all || ERROR=1; \
+	poetry run pylint $$(git ls-files "*.py" | grep -vE "/tests/" ) || ERROR=1; \
 	exit $$ERROR
-	# TODO: fix pylint to discover all projects \
-	# poetry run pylint aineko || ERROR=1; \
 
 test:
-	pytest . -sv
+	pytest . -sv --cov=aineko_plugins
 
 view-docs:
 	poetry run mkdocs serve --watch docs
