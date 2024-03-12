@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aineko-plugins-nodes-http-poller"
-version = "0.0.2"
+version = "0.0.3"
 description = "Aineko plugin for running an HTTP poller."
 authors = ["Convex Labs <engineering-admins@convexlabs.xyz>"]
 readme = "README.md"
@@ -17,7 +17,7 @@ packages = [{ include = "aineko_plugins/nodes/http_poller", from = "." }]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
-aineko = { version = "^0.3.2" }
+aineko = { version = "^0.4" }
 requests = { version = "^2.31.0" }
 
 

@@ -8,7 +8,8 @@ from typing import Dict
 
 import pytest
 import ray
-from aineko import AbstractNode, DatasetConsumer, Runner
+from aineko import AbstractNode, Runner
+from aineko.datasets.kafka import KafkaDataset
 
 
 class HTTPPollerChecker(AbstractNode):
@@ -18,9 +19,9 @@ class HTTPPollerChecker(AbstractNode):
         """Checks that the HTTPPoller is running."""
         results = {}
         for msg_num in range(5):
-            test_message = self.consumers["test_messages"].next()
+            test_message = self.inputs["test_messages"].next()
             results[f"message_{msg_num}"] = test_message["message"]
-        self.producers["test_result"].produce(results)
+        self.outputs["test_result"].write(results)
         self.activate_poison_pill()
         time.sleep(5)
 
@@ -41,14 +42,16 @@ def test_http_poller_node(start_service):
     except ray.exceptions.RayActorError:
         # This is expected because we activated the poison pill
         pass
-    consumer = DatasetConsumer(
-        dataset_name="test_result",
+
+    dataset = KafkaDataset(name="test_result", params={})
+    dataset.create()
+    dataset.initialize(
+        create="consumer",
         node_name="consumer",
         pipeline_name="test_http_poller",
-        dataset_config={},
         has_pipeline_prefix=True,
     )
-    test_results = consumer.next()
+    test_results = dataset.next()
     assert test_results["message"] == {
         "message_0": "Hello World!",
         "message_1": "Hello World!",
