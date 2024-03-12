@@ -30,6 +30,6 @@ pipeline:
 
   datasets:
     test_messages:
-      type: kafka_stream
+      type: aineko.datasets.kafka.KafkaDataset
     test_result:
-      type: kafka_stream
+      type: aineko.datasets.kafka.KafkaDataset
