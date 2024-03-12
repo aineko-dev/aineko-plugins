@@ -2,68 +2,69 @@
 # SPDX-License-Identifier: Apache-2.0
 """Main module for running a FastAPI server with Aineko.
 
-This module contains the Consumers and Producers class that give access to the
-node's consumers and producers from within the FastAPI app. It also contains
-the FastAPI node class that runs the uvicorn server.
+This module contains the inputs and outputs class that give access to the
+node's inputs and outputs from within the FastAPI app. It also contains the
+FastAPI node class that runs the uvicorn server.
 
-We recommend no more than 1 FastAPI node per pipeline since the Consumer and
-Producer objects are namespaced at the pipeline level. If you must have
-multiple FastAPI nodes, we recommend using different datasets to avoid
-namespace collisions.
+We recommend no more than 1 FastAPI node per pipeline since the Inputs and
+Outputs objects are namespaced at the pipeline level. If you must have multiple
+FastAPI nodes, we recommend using different datasets to avoid namespace
+collisions.
 """
 
 from typing import Optional, Union
 
 import uvicorn
-from aineko import AbstractNode, DatasetConsumer, DatasetProducer
+from aineko import AbstractNode
+from aineko.core.dataset import AbstractDataset
 
 
-class Consumers(dict):
-    """Class to contain consumers."""
+class Inputs(dict):
+    """Class to contain inputs."""
 
     def __setitem__(
-        self, key: Union[str, int, tuple], value: DatasetConsumer
+        self, key: Union[str, int, tuple], value: AbstractDataset
     ) -> None:
-        """Checks that item is of type DatasetConsumer before setting.
+        """Checks that item is of type AbstractDataset before setting.
 
         Args:
             key: Name of the dataset
-            value: DatasetConsumer object to be stored
+            value: AbstractDataset object to be stored
 
         Raises:
-            ValueError: If value is not of type DatasetConsumer
+            ValueError: If value is not a subtype of AbstractDataset
         """
-        if not isinstance(value, DatasetConsumer):
+        if not isinstance(value, AbstractDataset):
             raise ValueError(
-                f"Value must be of type DatasetConsumer, not {type(value)}"
+                f"Value must be a subtype of AbstractDataset, not {type(value)}"
             )
         super().__setitem__(key, value)
 
 
-class Producers(dict):
-    """Class to contain producers."""
+class Outputs(dict):
+    """Class to contain outputs."""
 
     def __setitem__(
-        self, key: Union[str, int, tuple], value: DatasetProducer
+        self, key: Union[str, int, tuple], value: AbstractDataset
     ) -> None:
-        """Checks that item is of type DatasetProducer before setting.
+        """Checks that item is of type AbstractDataset before setting.
 
         Args:
             key: Name of the dataset
-            value: DatasetProducer object to be stored
+            value: AbstractDataset object to be stored
 
         Raises:
-            ValueError: If value is not of type DatasetProducer
+            ValueError: If value is not a subtype of AbstractDataset
         """
-        if not isinstance(value, DatasetProducer):
+        if not isinstance(value, AbstractDataset):
             raise ValueError(
-                f"Value must be of type DatasetProducer, not {type(value)}"
+                f"Value must be a subtype of AbstractDataset, not {type(value)}"
             )
         super().__setitem__(key, value)
 
 
-consumers = Consumers()
-producers = Producers()
+inputs = Inputs()
+outputs = Outputs()
 
 
 class FastAPI(AbstractNode):
@@ -76,13 +77,12 @@ class FastAPI(AbstractNode):
         log_level (optional): log level to log messages from the uvicorn server.
             Defaults to "info".
 
-    To access the consumers and producers from your FastAPI app, import the
-    `consumers` and `producers` variables from
-    `aineko_plugins.nodes.fastapi_server`. Use them as you would use
-    `self.consumers` and `self.producers` in a regular node.
+    To access the inputs and outputs from your FastAPI app, import the `inputs`
+    and `outputs` variables from `aineko_plugins.nodes.fastapi_server`. Use
+    them as you would use `self.inputs` and `self.outputs` in a regular node.
 
-    We recommend no more than 1 FastAPI node per pipeline since the Consumer
-    and Producer objects are namespaced at the pipeline level.
+    We recommend no more than 1 FastAPI node per pipeline since the Inputs and
+    Outputs objects are namespaced at the pipeline level.
 
     Example usage in pipeline.yml:
     ```yaml title="pipeline.yml"
@@ -102,21 +102,21 @@ class FastAPI(AbstractNode):
 
     Example usage in FastAPI app:
     ```python title="fastapi.py"
-    from aineko_plugins.nodes.fastapi_server import consumers, producers
+    from aineko_plugins.nodes.fastapi_server import inputs, outputs
 
     @app.get("/query")
     async def query():
-        msg = consumers["test_sequence"].next()
+        msg = inputs["test_sequence"].next()
         return msg
     ```
     """
 
     def _pre_loop_hook(self, params: Optional[dict] = None) -> None:
         """Initialize node state. Set env variables for Fast API app."""
-        for key, value in self.consumers.items():
-            consumers[key] = value
-        for key, value in self.producers.items():
-            producers[key] = value
+        for key, value in self.inputs.items():
+            inputs[key] = value
+        for key, value in self.outputs.items():
+            outputs[key] = value
 
     def _execute(self, params: dict) -> None:
         """Start the API server."""

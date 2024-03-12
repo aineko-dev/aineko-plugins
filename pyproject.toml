@@ -47,7 +47,7 @@ mkdocs-material = "9.5.2"
 mkdocs-glightbox = "^0.3.4"
 mkdocstrings = { extras = ["python"], version = "^0.23.0" }
 mike = "^2.0.0"
-aineko-plugins-nodes-fastapi-server = { version = "0.0.2" }
+aineko-plugins-nodes-fastapi-server = { version = "0.0.3" }
 aineko-plugins-nodes-http-poller = { version = "0.0.2" }
 aineko-plugins-nodes-websocket-client = { version = "0.0.2" }
 
