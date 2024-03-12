@@ -823,12 +823,11 @@ port (optional): port to run the server on. Defaults to 8000.
 log_level (optional): log level to log messages from the uvicorn server.
     Defaults to "info".
 </code></pre>
-<p>To access the consumers and producers from your FastAPI app, import the
-<code>consumers</code> and <code>producers</code> variables from
-<code>aineko_plugins.nodes.fastapi_server</code>. Use them as you would use
-<code>self.consumers</code> and <code>self.producers</code> in a regular node.</p>
-<p>We recommend no more than 1 FastAPI node per pipeline since the Consumer
-and Producer objects are namespaced at the pipeline level.</p>
+<p>To access the inputs and outputs from your FastAPI app, import the <code>inputs</code>
+and <code>outputs</code> variables from <code>aineko_plugins.nodes.fastapi_server</code>. Use
+them as you would use <code>self.inputs</code> and <code>self.outputs</code> in a regular node.</p>
+<p>We recommend no more than 1 FastAPI node per pipeline since the Inputs and
+Outputs objects are namespaced at the pipeline level.</p>
 <p>Example usage in pipeline.yml:
 <div class="highlight"><span class="filename">pipeline.yml</span><pre><span></span><code><span class="nt">pipeline</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">nodes</span><span class="p">:</span>
@@ -844,11 +843,11 @@ where the app points to a FastAPI app. See
 <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI documentation</a>
 on how to create a FastAPI app.</p>
 <p>Example usage in FastAPI app:
-<div class="highlight"><span class="filename">fastapi.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">aineko_plugins.nodes.fastapi_server</span> <span class="kn">import</span> <span class="n">consumers</span><span class="p">,</span> <span class="n">producers</span>
+<div class="highlight"><span class="filename">fastapi.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">aineko_plugins.nodes.fastapi_server</span> <span class="kn">import</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/query&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">query</span><span class="p">():</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="n">consumers</span><span class="p">[</span><span class="s2">&quot;test_sequence&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;test_sequence&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">msg</span>
 </code></pre></div></p>
 
