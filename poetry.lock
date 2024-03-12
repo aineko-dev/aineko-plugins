@@ -75,13 +75,13 @@ url = "nodes/aineko-plugins-nodes-websocket-client"
 
 [[package]]
 name = "aineko-style"
-version = "0.0.1"
+version = "0.0.2"
 description = "Custom pylint rules for aineko-dev codebases."
 optional = false
-python-versions = ">=3.8,<3.12"
+python-versions = ">=3.8,<3.13"
 files = [
-    {file = "aineko_style-0.0.1-py3-none-any.whl", hash = "sha256:5c45315c28505212ba490746959a45db28585803d3c421972b2790e27e457f66"},
-    {file = "aineko_style-0.0.1.tar.gz", hash = "sha256:3e4b895f836df9f0a0e8b38f949612cadb953b227f501bb2624db424b182824e"},
+    {file = "aineko_style-0.0.2-py3-none-any.whl", hash = "sha256:6c6d5d7681e3010c16ebb51d7e1aa659cc493cf4ea56b57dca28a09a0b5676cc"},
+    {file = "aineko_style-0.0.2.tar.gz", hash = "sha256:62dcd950d2b1819dffdc404d89174e486ebc79e16f46d82ec02ea94d124d0a29"},
 ]
 
 [package.dependencies]
@@ -3759,4 +3759,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.12"
-content-hash = "0001f3a576da5cb40d158d4ddd2d3945a68e338fa6a08af7e5f112b67fe38a3b"
+content-hash = "4fd9ffa6e3051abc8a7476ced66f311f1076fbb9fa430e4c054990d9132b57a9"

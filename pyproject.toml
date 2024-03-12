@@ -18,7 +18,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.group.dev.dependencies]
 # aineko = { path = "../aineko", develop = true }
-aineko_style = "^0.0.1"
+aineko_style = "^0.0.2"
 black = "^23.7.0"
 isort = "^5.12.0"
 pre-commit = "^3.4.0"
