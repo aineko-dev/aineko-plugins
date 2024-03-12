@@ -109,7 +109,7 @@ class WebSocketClient(AbstractNode):
             ) from err
 
         # Ensure only one output dataset is provided
-        output_datasets = [d for d in self.producers.keys() if d != "logging"]
+        output_datasets = [d for d in self.outputs.keys() if d != "logging"]
         if len(output_datasets) > 1:
             raise ValueError(
                 "Only one output dataset is allowed for the "
@@ -144,14 +144,14 @@ class WebSocketClient(AbstractNode):
             return
 
         try:
-            # Parse the message and emit to producers
+            # Parse the message and write to outputs
             message = json.loads(raw_message)
             if self.ws_params.metadata is not None:
                 message = {
                     "metadata": self.ws_params.metadata,
                     "data": message,
                 }
-            self.producers[self.output_dataset].produce(message)
+            self.outputs[self.output_dataset].write(message)
             self.retry_count = 0
         except json.decoder.JSONDecodeError as err:
             if self.retry_count < self.ws_params.max_retries:

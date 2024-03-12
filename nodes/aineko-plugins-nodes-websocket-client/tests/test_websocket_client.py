@@ -11,7 +11,8 @@ from typing import Dict, Optional
 import pytest
 import ray
 import websockets
-from aineko import AbstractNode, DatasetConsumer, Runner
+from aineko import AbstractNode, Runner
+from aineko.datasets.kafka import KafkaDataset
 
 CONNECTED_CLIENTS = set()
 
@@ -82,9 +83,9 @@ class WebSocketClientChecker(AbstractNode):
         """Checks that the WebSocketClient is running."""
         results = {}
         for msg_num in range(5):
-            test_message = self.consumers["test_messages"].next()
+            test_message = self.inputs["test_messages"].next()
             results[f"message_{msg_num}"] = test_message["message"]["message"]
-        self.producers["test_result"].produce(results)
+        self.outputs["test_result"].write(results)
         self.activate_poison_pill()
         time.sleep(5)
 
@@ -95,8 +96,8 @@ def test_websocket_client_node(start_service):
 
     Spin up a pipeline containing the WebSocketClient node and a
     WebSocketServer node that creates a test WebSocket server.
-    The WebSocketClient node connects to the server and consumes
-    messages from it and produces them to the test_messages dataset.
+    The WebSocketClient node connects to the server and reads
+    messages from it and writes them to the test_messages dataset.
     """
     test_config = Path(os.path.dirname(__file__)) / "test_websocket_client.yml"
     runner = Runner(pipeline_config_file=test_config)
@@ -107,14 +108,16 @@ def test_websocket_client_node(start_service):
         # This is expected because we activated the poison pill
         pass
 
-    consumer = DatasetConsumer(
-        dataset_name="test_result",
+    dataset = KafkaDataset(name="test_result", params={})
+    dataset.create()
+    dataset.initialize(
+        create="consumer",
         node_name="consumer",
         pipeline_name="test_websocket_client",
-        dataset_config={},
         has_pipeline_prefix=True,
     )
-    test_results = consumer.next()
+    test_results = dataset.next()
+
     assert test_results["message"] == {
         "message_0": "Hello World!",
         "message_1": "Hello World!",

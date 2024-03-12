@@ -57,7 +57,7 @@ url = "nodes/aineko-plugins-nodes-http-poller"
 
 [[package]]
 name = "aineko-plugins-nodes-websocket-client"
-version = "0.0.2"
+version = "0.0.3"
 description = "Aineko plugin for running a WebSocket client"
 optional = false
 python-versions = ">=3.8,<3.12"
@@ -65,7 +65,7 @@ files = []
 develop = true
 
 [package.dependencies]
-aineko = "^0.3.2"
+aineko = "^0.4"
 websocket-client = "^1.7.0"
 websockets = "^12.0"
 

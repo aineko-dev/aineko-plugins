@@ -2,13 +2,13 @@
 
 [[package]]
 name = "aineko"
-version = "0.3.2"
+version = "0.4.0"
 description = "Aineko, a data integration framework."
 optional = false
 python-versions = ">=3.8,<3.12"
 files = [
-    {file = "aineko-0.3.2-py3-none-any.whl", hash = "sha256:c26cb1b9bfd2102fcffb750dfaea71e70b721cb6423fa17f79f92f9280660688"},
-    {file = "aineko-0.3.2.tar.gz", hash = "sha256:2c9c983ba6978f444e5b4ce334486d37591607d089af29990176c538f1e67b28"},
+    {file = "aineko-0.4.0-py3-none-any.whl", hash = "sha256:7f502b3fee1326a093c3eb6ba5c2e37e726fa5305ecf0f351b4e7e7bc01074da"},
+    {file = "aineko-0.4.0.tar.gz", hash = "sha256:7f9630403626b94d6b7952dfd3998c590d7ccf1021d9e8a00756af272a2b05b9"},
 ]
 
 [package.dependencies]
@@ -2373,4 +2373,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.12"
-content-hash = "64f5b72fffcbd6d7430f01cb045ea46c2e96b33e0d0b822c580e2310d4e9ed85"
+content-hash = "4bc69ae57f18d10aee107b55121f14d298e868d12d3d665bc8a810d7c4faef81"
