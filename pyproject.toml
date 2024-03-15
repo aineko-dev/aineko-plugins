@@ -18,6 +18,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.group.dev.dependencies]
 # aineko = { path = "../aineko", develop = true }
+aineko = { git = "git@github.com:aineko-dev/aineko.git", branch = "refactor/ray-init" }
 aineko_style = "^0.0.2"
 black = "^23.7.0"
 isort = "^5.12.0"
@@ -29,7 +30,7 @@ yamllint = "^1.32.0"
 aineko_plugins_nodes_fastapi_server = { path = "./nodes/aineko-plugins-nodes-fastapi-server", develop = true }
 aineko_plugins_nodes_websocket_client = { path = "./nodes/aineko-plugins-nodes-websocket-client", develop = true }
 aineko_plugins_nodes_http_poller = { path = "./nodes/aineko-plugins-nodes-http-poller", develop = true }
-
+aineko_plugins_datasets_ray = { path = "./datasets/aineko-plugins-datasets-ray", develop = true }
 [tool.poetry.group.test]
 optional = true
 

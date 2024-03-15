@@ -1,0 +1,22 @@
+# Copyright 2023 Aineko Authors
+# SPDX-License-Identifier: Apache-2.0
+pipeline:
+  name: test_pipeline
+
+  default_node_settings:
+    num_cpus: 0.5
+
+  nodes:
+    reader:
+      class: aineko_plugins.datasets.ray.nodes.TestReader
+      inputs:
+        - ray_dataset
+
+    writer:
+      class: aineko_plugins.datasets.ray.nodes.TestWriter
+      outputs:
+        - ray_dataset
+
+  datasets:
+    ray_dataset:
+      type: aineko_plugins.datasets.ray.RayDataset
