@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "aineko-plugins-datasets-ray"
+version = "0.0.1"
+description = "Aineko plugin for using Ray Queue as a dataset"
+authors = ["Convex Labs <engineering-admins@convexlabs.xyz>"]
+readme = "README.md"
+license = "Apache-2.0"
+homepage = "https://aineko.dev"
+repository = "https://github.com/aineko-dev/aineko-plugins/tree/develop/datasets/aineko-plugins-datasets-postgres"
+documentation = "https://plugin-docs.aineko.dev/dev/datasets/postgres"
+classifiers = [
+    "Typing :: Typed",
+    "Development Status :: 4 - Beta",
+    "Natural Language :: English",
+]
+packages = [{ include = "aineko_plugins/datasets/ray", from = "." }]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.12"
+aineko = { version = "^0.4" }
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
