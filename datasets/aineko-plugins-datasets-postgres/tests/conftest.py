@@ -4,7 +4,7 @@
 import psycopg
 import pytest
 from aineko.__main__ import cli
-from aineko_plugins.datasets.postgres.postgres import AsyncPostgresDataset
+from aineko_plugins.datasets.postgres.postgres import PostgresDataset
 from click.testing import CliRunner
 from pytest_postgresql import factories
 from pytest_postgresql.janitor import DatabaseJanitor
@@ -119,9 +119,9 @@ def database_without_table(pg, postgresql_in_docker):
 
 
 @pytest.fixture
-def postgres_db(postgresql_in_docker) -> AsyncPostgresDataset:
+def postgres_db(postgresql_in_docker) -> PostgresDataset:
     """Create an instance of the Postgres dataset with predefined parameters."""
-    dataset = AsyncPostgresDataset(
+    dataset = PostgresDataset(
         name="test_table",
         host=postgresql_in_docker.host,
         dbname=postgresql_in_docker.dbname,
