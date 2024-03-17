@@ -279,5 +279,26 @@ class PostgresDataset(AbstractDataset):
                     f"Failed to execute query: {query!r}"
                 ) from exc
 
-    def setup_test_mode(self) -> None:
-        raise NotImplementedError("Test mode not yet implemented.")
+    def setup_test_mode(
+        self,
+        source_node: str,
+        source_pipeline: str,
+        input_values: Optional[List[dict]] = None,
+    ) -> None:
+        """Subclass implementation to set up the dataset for testing.
+
+        Nodes have the ability to run in test mode, which allows them to run
+        without setting up the actual dataset storage layer. All dataset
+        implementations must implement this method. A dataset in test mode
+        should never interact with the real storage layer. Instead, it should
+        use the class attributes as the storage layer:
+
+        * `_input_values` for input values
+        * `_output_values` for output values
+
+        Args:
+            source_node: The name of the source node.
+            source_pipeline: The name of the source pipeline.
+            input_values: A list of input values.
+        """
+        raise NotImplementedError
