@@ -273,3 +273,6 @@ class PostgresDataset(AbstractDataset):
                 raise DatasetError(
                     f"Failed to execute query: {query!r}"
                 ) from exc
+
+    def setup_test_mode(self) -> None:
+        raise NotImplementedError("Test mode not yet implemented.")
