@@ -6,4 +6,4 @@ The Postgres plugin can be installed using poetry with the following command `po
 
 ## API Reference
 
-::: aineko_plugins.datasets.postgres.AsyncPostgresDataset
+::: aineko_plugins.datasets.postgres.PostgresDataset
