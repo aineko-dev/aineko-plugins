@@ -6,7 +6,11 @@ from types import TracebackType
 from typing import Any, Dict, List, Optional, Type
 
 import boto3
-from aineko.core.dataset import AbstractDataset, DatasetError
+from aineko.core.dataset import (
+    AbstractDataset,
+    DatasetCreationStatus,
+    DatasetError,
+)
 from mypy_boto3_rds import RDSClient
 from psycopg import Cursor, errors, rows, sql
 from psycopg.abc import Params, Query
@@ -146,7 +150,7 @@ class PostgresDataset(AbstractDataset):
         self,
         schema: Dict[str, str],
         extra_commands: str = "",
-    ) -> None:
+    ) -> DatasetCreationStatus:
         """Create a new postgres table.
 
         Executes the SQL command:
@@ -174,6 +178,7 @@ class PostgresDataset(AbstractDataset):
             extra_commands=sql.SQL(extra_commands),
         )
         self.execute_query(query)
+        return DatasetCreationStatus(dataset_name=self.name)
 
     def read(self, query: Query) -> List[Any]:
         """Performs a read operation on the Postgres database.
